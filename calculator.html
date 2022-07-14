@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="calculator">
+        <form action="" onsubmit="return false;">
+            <input type="text" id="input">
+            <div class="buttons">
+                <button onclick="calculate(this)" class="btn">1</button>
+                <button onclick="calculate(this)" class="btn">2</button>
+                <button onclick="calculate(this)" class="btn">3</button>
+                <button onclick="calculate(this)" class="btn">4</button>
+                <button onclick="calculate(this)" class="btn">5</button>
+                <button onclick="calculate(this)" class="btn">6</button>
+                <button onclick="calculate(this)" class="btn">7</button>
+                <button onclick="calculate(this)" class="btn">8</button>
+                <button onclick="calculate(this)" class="btn">9</button>
+                <button onclick="calculate(this)" class="btn">0</button>
+                <button onclick="calculate(this)" class="btn">.</button>
+                <button onclick="calculate(this)" class="btn">+</button>
+                <button onclick="calculate(this)" class="btn">-</button>
+                <button onclick="calculate(this)" class="btn">*</button>
+                <button onclick="calculate(this)" class="btn">/</button>
+                <button onclick="calculate(this)" class="btn">C</button>
+                <button class="btn-equal" onclick="calculate(this)" class="btn">=</button>
+            </div>
+        </form>
+    </div>
+
+
+
+    <script>
+        var input = document.getElementById('input');
+        var n1 = 0;
+        var n2 = 0;
+        var operator = '';
+       
+        function calculate(val) {
+            let value = val.innerHTML;
+
+            if (isNaN(parseFloat(value))) {
+                if(value==='C'){
+                    input.value=""
+                }
+
+                if (value !== '=') {
+                    operator = value
+                }
+                if (value !== '=') {
+                    operator = value
+                    n1 = parseFloat(input.value)
+                    console.log(n1)
+                    input.value = ''
+                } else {
+                    n2 = parseFloat(input.value)
+                    input.value = ''
+                }
+
+
+                if (value == '=') {
+                    console.log(operator)
+                    if (operator == "+") {
+                        input.value = n1 + n2
+                    }
+                    if (operator == "-") {
+                        input.value = n1 - n2
+                    }
+                    if (operator == "*") {
+                        input.value = n1 * n2
+                    }
+                    if (operator == "/") {
+                        input.value = n1 / n2
+                    }
+                }
+            }
+
+
+            
+            else {
+                input.value += value;
+            }
+        }
+    </script>
+</body>
+
+</html>
